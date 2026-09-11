@@ -11,4 +11,9 @@ export class EmpleadoMensual extends Empleado {
   calcularSueldo(): number {               //el sueldo es simplemente el monto fijo
     return this._sueldoFijo;
   }
+
+  aplicarAumento(porcentaje: number): void {                      //aumenta el sueldo fijo en el porcentaje dado (ej: 10 para 10%)
+   const aumento = this._sueldoFijo * (porcentaje / 100);
+   this._sueldoFijo += aumento;
+  }
 }

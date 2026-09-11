@@ -13,4 +13,8 @@ export class EmpleadoPorHora extends Empleado {
     calcularSueldo(): number {
         return this._valorHora * this._horasTrabajadas;
     }
+    aplicarAumento(porcentaje: number): void {
+        const aumento = this._valorHora * (porcentaje / 100);
+        this._valorHora += aumento;
+    }
 }

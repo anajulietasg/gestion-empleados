@@ -32,4 +32,18 @@ describe("Empresa", () => {
         empresa.contratar(new EmpleadoPorComision("Pedro", 102, 500, 20, 20000));
         expect(empresa.totalSueldos()).toBe(50000 + (1000 * 40) + (20000 + (500 * 20)));
     });
+
+    test("un aumento del 10% sube el sueldo correctamente", () => {
+        const emp = new EmpleadoMensual("Daniela", 100, 50000);
+        emp.aplicarAumento(20);
+        expect(emp.calcularSueldo()).toBe(60000);   //50000 + 20% = 60000
+    });
+
+    test("la empresa aumenta el sueldo de todos", () => {
+        const empresa = new Empresa();
+        empresa.contratar(new EmpleadoMensual("Daniela", 100, 50000));
+        empresa.contratar(new EmpleadoMensual("Martin", 101, 30000));
+        empresa.aumentarSueldos(10);
+        expect(empresa.totalSueldos()).toBe(88000);   //55000 + 33000 = 88000
+    });
 });

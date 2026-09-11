@@ -15,4 +15,9 @@ export class EmpleadoPorComision extends Empleado {
     calcularSueldo(): number {
         return this._sueldoBase + (this._valorComision * this._ventas);
     }
+
+    aplicarAumento(porcentaje: number): void {
+        const aumento = this._sueldoBase * (porcentaje / 100);
+        this._sueldoBase += aumento;
+    }
 }

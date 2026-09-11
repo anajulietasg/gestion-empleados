@@ -15,6 +15,8 @@ export abstract class Empleado implements IPagable {
         return this._legajo;
     }
     abstract calcularSueldo(): number;
+    abstract aplicarAumento(porcentaje: number): void;
+    
     descripcion(): string {
         return `Empleado: ${this._nombre} - Legajo: ${this._legajo}`;
     }

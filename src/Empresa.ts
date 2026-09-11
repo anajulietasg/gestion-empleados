@@ -26,4 +26,10 @@ export class Empresa {
     cantidad(): number {                    //cuántos empleados tiene
      return this._empleados.length;
     }
+
+    aumentarSueldos(porcentaje: number): void {            //da un aumento a todos los empleados de la empresa
+        for (const empleado of this._empleados) {
+        empleado.aplicarAumento(porcentaje);
+      }
+    }
 }
