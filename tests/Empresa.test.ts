@@ -46,4 +46,19 @@ describe("Empresa", () => {
         empresa.aumentarSueldos(10);
         expect(empresa.totalSueldos()).toBe(88000);   //55000 + 33000 = 88000
     });
+
+    test("encuentra un empleado por su legajo", () => {
+        const empresa = new Empresa();
+        empresa.contratar(new EmpleadoMensual("Maria", 100, 50000));
+        empresa.contratar(new EmpleadoMensual("Juan", 101, 30000));
+        const encontrado = empresa.buscarPorLegajo(101);
+        expect(encontrado?.nombre).toBe("Juan");   //el legajo 101 es Juan
+    });
+
+    test("devuelve null si el legajo no existe", () => {
+        const empresa = new Empresa();
+        empresa.contratar(new EmpleadoMensual("Maria", 100, 50000));
+        const encontrado = empresa.buscarPorLegajo(999);   //legajo que no existe
+        expect(encontrado).toBeNull();   //no encuentra nada
+    });
 });

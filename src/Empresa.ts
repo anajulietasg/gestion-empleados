@@ -32,4 +32,13 @@ export class Empresa {
         empleado.aplicarAumento(porcentaje);
       }
     }
+
+    buscarPorLegajo(legajo: number): Empleado | null {    //busca un empleado por su legajo
+        for (const empleado of this._empleados) {
+        if (empleado.legajo === legajo) {   //¿este empleado tiene el legajo que busco?
+        return empleado;                   //si sí, lo devuelvo y corto la búsqueda
+        }
+     }
+        return null;   //si no lo encontré, devuelvo null 
+    }
 }
