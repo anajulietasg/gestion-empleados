@@ -16,4 +16,9 @@ describe("EmpleadoMensual", () => {
     const emp = new EmpleadoMensual("Juana", 100, 50000);
     expect(emp.nombre).toBe("Juana");
   });
+
+  test("un sueldo negativo se guarda como 0", () => {
+    const emp = new EmpleadoMensual("Martina", 100, -5000);
+    expect(emp.calcularSueldo()).toBe(0);
+  });
 });

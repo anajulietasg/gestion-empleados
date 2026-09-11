@@ -16,4 +16,14 @@ describe("EmpleadoPorHora", () => {
         const emp = new EmpleadoPorHora("Juan", 100, 1000, 10);
         expect(emp.nombre).toBe("Juan");
     });
+
+    test("horas negativas se guardan como 0", () => {
+        const emp = new EmpleadoPorHora("Martina", 100, -50, 500);   //horas negativas
+        expect(emp.calcularSueldo()).toBe(0);
+    });
+
+    test("valor de hora negativo se guarda como 0", () => {
+        const emp = new EmpleadoPorHora("Martina", 100, 160, -500);  //valor hora negativo
+        expect(emp.calcularSueldo()).toBe(0);
+    });
 });

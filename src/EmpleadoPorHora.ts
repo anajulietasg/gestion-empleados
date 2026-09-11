@@ -6,8 +6,8 @@ export class EmpleadoPorHora extends Empleado {
 
     constructor(nombre: string, legajo: number, valorHora: number, horasTrabajadas: number) {
         super(nombre, legajo);
-        this._valorHora = valorHora;
-        this._horasTrabajadas = horasTrabajadas;
+        this._valorHora = Math.max(0, valorHora);
+        this._horasTrabajadas = Math.max(0, horasTrabajadas);
     }
 
     calcularSueldo(): number {

@@ -7,9 +7,9 @@ export class EmpleadoPorComision extends Empleado {
 
     constructor(nombre: string, legajo: number, valorComision: number, ventas: number, sueldoBase: number) {
         super(nombre, legajo);
-        this._valorComision = valorComision;
-        this._ventas = ventas;
-        this._sueldoBase = sueldoBase;
+        this._valorComision = Math.max(0, valorComision);
+        this._ventas = Math.max(0, ventas);
+        this._sueldoBase = Math.max(0, sueldoBase);
     }
 
     calcularSueldo(): number {
