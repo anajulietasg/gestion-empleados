@@ -26,4 +26,9 @@ describe("EmpleadoPorHora", () => {
         const emp = new EmpleadoPorHora("Martina", 100, 160, -500);  //valor hora negativo
         expect(emp.calcularSueldo()).toBe(0);
     });
+
+    test("el neto funciona para distintos tipos de empleado", () => {
+        const emp = new EmpleadoPorHora("Juan", 101, 100, 1000);      //bruto 100000 (100 horas × 1000), neto = 86000
+        expect(emp.sueldoNeto()).toBe(86000);           
+    });
 });

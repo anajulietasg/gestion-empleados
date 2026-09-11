@@ -21,4 +21,9 @@ describe("EmpleadoMensual", () => {
     const emp = new EmpleadoMensual("Martina", 100, -5000);
     expect(emp.calcularSueldo()).toBe(0);
   });
+
+  test("el sueldo neto resta los descuentos del bruto", () => {
+    const emp = new EmpleadoMensual("Daniela", 100, 100000);       //bruto 100000, descuento 14% = 14000, neto = 86000
+    expect(emp.sueldoNeto()).toBe(86000);
+  });
 });

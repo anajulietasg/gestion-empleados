@@ -20,4 +20,10 @@ export abstract class Empleado implements IPagable {
     descripcion(): string {
         return `Empleado: ${this._nombre} - Legajo: ${this._legajo}`;
     }
+
+    sueldoNeto(): number {
+        const descuento = 0.14;   //14% de descuentos (jubilación + obra social)
+        const bruto = this.calcularSueldo();          //el sueldo bruto
+        return bruto - (bruto * descuento);           //resto los descuentos
+    }
 }
